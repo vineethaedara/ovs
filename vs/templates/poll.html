@@ -1,0 +1,17 @@
+{% extends 'base1.html' %}
+
+{% block main %}
+<h2>poll page</h2>
+<hr>
+<div class='container'>
+  {% if ques %}
+    <ul>
+    {% for question in ques %}
+        <li><a href="{% url 'vs:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+    {% else %}
+        <p>No polls are available.</p>
+  {% endif %}
+</div>
+{% endblock %}
